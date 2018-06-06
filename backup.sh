@@ -23,6 +23,8 @@ then
     ./upload_nc.py $FILENAME
 fi
 
+rm $FILENAME
+
 SLACK_MESSAGE="Odoo database \"$DBNAME\" on server \"$SERVERNAME\" has been successfully backed up to Amazone S3 Bucket \"$S3_BUCKET\"."
 curl -X POST --data-urlencode "payload={ 'text': '$SLACK_MESSAGE',}" $SLACK_HOOK
 
